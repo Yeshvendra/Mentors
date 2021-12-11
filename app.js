@@ -27,6 +27,6 @@ app.get('/healthCheck', (req, res) => {
     res.send("Healthy");
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("Server started at port: " + port);
 });
