@@ -118,7 +118,7 @@
 .flip-clock-divider::before {
   content: ":";
   font-family: Quantico-Regular;
-  color: #fff;
+  color: #000;
   font-size: 120px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -137,7 +137,7 @@
 
 .flip-clock-divider::after {
   font-family: Montserrat-Bold;
-  color: #fff;
+  color: #000;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -209,7 +209,7 @@
 
 /*==================================================================
 [ Color ]*/
-.cl0 {color: #fff;}
+.cl0 {color: #000;}
 
 
 
@@ -219,7 +219,7 @@
 .s1-txt1 {
   font-family: Montserrat-Bold;
   font-size: 14px;
-  color: #fff;
+  color: #000;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -235,7 +235,7 @@
 .l1-txt1 {
   font-family: Montserrat-Thin;
   font-size: 50px;
-  color: #fff;
+  color: #000;
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 10px;
