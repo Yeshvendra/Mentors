@@ -16,6 +16,8 @@ const port = 3000;
 app.use(cors());
 app.use(bodyparser.json());
 
+//Adding mongodb code
+
 //Static file server
 app.use(express.static(path.join(__dirname, 'public')));
 
