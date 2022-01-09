@@ -10,6 +10,12 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
+//Init process environment if not initialized by npm run
+if(!process.env.NODE_ENV)
+{
+    process.env.NODE_ENV = "dev";
+}
+
 const route = require("./routes/route");
 var userRoutes = require("./routes/user_routes");
 
