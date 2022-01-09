@@ -23,13 +23,13 @@ app.use(cors());
 app.use(bodyparser.json());
 
 //Adding mongodb code
-if(!(process.env.NODE_ENV.includes('prod') && process.env.MONGO_IP == undefined))
+if(!(process.env.NODE_ENV.includes('prod') && process.env.MONGO_URL == undefined))
 {
     let mongodbURL;
-    if(process.env.MONGO_IP)
+    if(process.env.MONGO_URL)
     {
-        const mongoIP = process.env.MONGO_IP;
-        mongodbURL = 'mongodb+srv://' + mongoIP;
+        const mongoURL = process.env.MONGO_URL;
+        mongodbURL = 'mongodb+srv://' + mongoURL;
     }
     else
     {
@@ -53,7 +53,7 @@ if(!(process.env.NODE_ENV.includes('prod') && process.env.MONGO_IP == undefined)
 }
 else
 {
-    console.log('Production mode require MONGO_IP being set. Please initialize it first before running.')
+    console.log('Production mode require MONGO_URL being set. Please initialize it first before running.')
 }
 
 //Static file server
