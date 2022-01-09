@@ -1,38 +1,91 @@
 //Importing module
-let express = require("express");
-let mongoose = require("mongoose");
-let bodyparser = require("body-parser");
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
+const session = require('express-session');
+const flash = require('connect-flash');
+const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-let cors = require("cors");
-let path = require("path");
+const User = require('./models/user');
+
 const route = require("./routes/route");
 var userRoutes = require("./routes/user_routes");
 
-// Connect to database
-var url = "mongodb://localhost:27017/mentors";
-mongoose.connect(url, {
+//Adding mongodb code
+if(!(process.env.NODE_ENV.includes('prod') && process.env.MONGO_URL == undefined))
+{
+    let mongodbURL;
+    if(process.env.MONGO_URL)
+    {
+        mongodbURL = process.env.MONGO_URL;
+    }
+    else
+    {
+        const mongoIP = 'localhost';
+        const mongoPort = '27017';
+        mongodbURL = 'mongodb://' + mongoIP + ':' + mongoPort + '/mentorsdb';
+    }
+    mongoose.connect(mongodbURL);
 
-    useNewUrlParser: true,
+    mongoose.connection.on('connected', () => {
+        console.log('Connected to mongodb...');
+    });
 
-    useUnifiedTopology: true
+    mongoose.connection.on('error', (err) => {
+        if(err)
+        {
+            console.log('Error: ' + err);
+        }
+        console.log('Error while connecting to database...');
+    });
+}
+else
+{
+    console.log('Production mode require MONGO_URL being set. Please initialize it first before running.')
+}
 
-}, err => {
-    if (err) throw err;
-    console.log('Connected to MongoDB!!!')
-});
+const app = express();
 
-let app = express();
+app.engine('ejs', ejsMate)
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
 
-//Static file server
-app.use(express.static(path.join(__dirname, 'public')));
-//Adding middleware
-app.use(cors());
-app.use(bodyparser.json());
-
-app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')))
 
+const sessionConfig = {
+    secret: 'thisshouldbeabettersecret!',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}
+
+app.use(session(sessionConfig))
+app.use(flash());
+
+app.use(passport.initialize())
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req, res, next) => {
+    console.log(req.session)
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
+//================================================================================
 //Adding routes
 app.use('/api', route);
 app.use(userRoutes);
