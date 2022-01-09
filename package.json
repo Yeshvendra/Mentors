@@ -4,9 +4,9 @@
   "description": "Platform to bridge gap between mentors and mentee.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "set NODE_ENV=prod && node app.js",
+    "dev": "set NODE_ENV=dev && nodemon app.js",
+    "test": "set NODE_ENV=test && echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
