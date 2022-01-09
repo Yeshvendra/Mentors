@@ -28,8 +28,7 @@ if(!(process.env.NODE_ENV.includes('prod') && process.env.MONGO_URL == undefined
     let mongodbURL;
     if(process.env.MONGO_URL)
     {
-        const mongoURL = process.env.MONGO_URL;
-        mongodbURL = 'mongodb+srv://' + mongoURL;
+        mongodbURL = process.env.MONGO_URL;
     }
     else
     {
