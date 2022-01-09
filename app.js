@@ -13,7 +13,9 @@ if(!process.env.NODE_ENV)
 
 let app = express();
 
-const route = require("./routes/route");
+const professorRoute = require('./routes/professor_route');
+const instituteRoute = require('./routes/institute_route');
+const projectRoute = require('./routes/project_route');
 
 //Init port number
 const port = 3000;
@@ -59,7 +61,9 @@ else
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Adding routes
-app.use('/api', route);
+app.use('/api', professorRoute);
+app.use('/api', instituteRoute);
+app.use('/api', projectRoute);
 
 //Health Check end-point
 app.get('/healthCheck', (req, res) => {

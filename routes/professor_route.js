@@ -1,5 +1,4 @@
 const express = require('express');
-const { route } = require('express/lib/application');
 const router = express.Router();
 
 const Professor = require('../models/professors');
@@ -23,10 +22,15 @@ router.post("/professor", (req, res) => {
     let newProfessor = new Professor({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
-        phone: req.body.phone
+        phone: req.body.phone,
+        email: req.body.email,
+        designation: req.body.designation,
+        googleScholarUrl: req.body.googleScholarUrl,
+        linkedInUrl: req.body.linkedInUrl,
+        personalWebsite: req.body.personalWebsite
     });
 
-    newProfessor.save((err, professor) => {
+    newProfessor.save((err, result) => {
         if(err)
         {
             res.json({msg: 'Failed to add Professor. Error: ' + err});
@@ -62,6 +66,20 @@ router.put("/professor/:id", (req, res) => {
         else
         {
             res.json({msg: 'Professor edited successfully'});
+        }
+    });
+});
+
+// find professor
+router.get("/professor/:id", (req, res) => {
+    Professor.findOne({_id: req.params.id}, (err, professor) => {
+        if(err)
+        {
+            res.json({msg: 'Failed to get professor with id: ' + req.params.id + '. Error: ' + err});
+        }
+        else
+        {
+            res.json(professor);
         }
     });
 });
