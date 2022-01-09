@@ -16,7 +16,9 @@ if(!process.env.NODE_ENV)
     process.env.NODE_ENV = "dev";
 }
 
-const route = require("./routes/route");
+const professorRoute = require('./routes/professor_route');
+const instituteRoute = require('./routes/institute_route');
+const projectRoute = require('./routes/project_route');
 var userRoutes = require("./routes/user_routes");
 
 //Adding mongodb code
@@ -58,6 +60,9 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
+//Adding middleware
+app.use(cors());
+app.use(bodyparser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
@@ -93,7 +98,9 @@ app.use((req, res, next) => {
 
 //================================================================================
 //Adding routes
-app.use('/api', route);
+app.use('/api', professorRoute);
+app.use('/api', instituteRoute);
+app.use('/api', projectRoute);
 app.use(userRoutes);
 
 //Health Check end-point

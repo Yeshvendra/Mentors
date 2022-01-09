@@ -12,6 +12,22 @@ const ProfessorSchema = mongoose.Schema({
     phone: {
         type: String,
         required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    designation: {
+        type: String
+    },
+    googleScholarUrl: {
+        type: String
+    },
+    linkedInUrl: {
+        type: String
+    },
+    personalWebsite: {
+        type: String
     }
 });
 
