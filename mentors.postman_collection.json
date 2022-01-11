@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "7536fc26-175d-4f53-b7c3-9f4c078cca87",
+		"name": "mentors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Get all professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professors",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get professor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add professor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update professor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Institute",
+			"item": [
+				{
+					"name": "Get all institutes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/institutes",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get institute",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/institute/{{INSTITUTE_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"institute",
+								"{{INSTITUTE_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add institute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"CHANGE_ME\",\r\n    \"address\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"website\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/institute",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"institute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete institute",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/institute/{{INSTITUTE_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"institute",
+								"{{INSTITUTE_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update institute",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"CHANGE_ME\",\r\n    \"address\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"website\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/institute/{{INSTITUTE_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"institute",
+								"{{INSTITUTE_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Get all project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/projects",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/project/{{PROJECT_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"project",
+								"{{PROJECT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"keywords\": \"CHANGE_ME\",\r\n    \"start_date\": \"CHANGE_ME\",\r\n    \"end_date\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/project",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/project/{{PROJECT_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"project",
+								"{{PROJECT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"keywords\": \"CHANGE_ME\",\r\n    \"start_date\": \"CHANGE_ME\",\r\n    \"end_date\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/project/{{PROJECT_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"project",
+								"{{PROJECT_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ed8c28f8-2bc9-402a-b621-a045848386db",
+			"key": "ROOT_URL",
+			"value": "http://localhost:3000"
+		},
+		{
+			"id": "ef96ba53-7097-48f2-bf18-7d066cfb6ab9",
+			"key": "PROFESSOR_ID",
+			"value": ""
+		},
+		{
+			"id": "3e684102-3f40-4a30-b947-d10b9eb8766e",
+			"key": "PROJECT_ID",
+			"value": ""
+		},
+		{
+			"id": "87d9b631-8ab1-45d3-a68a-9005cf24ffdb",
+			"key": "INSTITUTE_ID",
+			"value": ""
+		}
+	]
+}
