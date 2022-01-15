@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
 const User = require("../models/user");
+const ProfessorController = require("../controller/professor_controller");
 
 // ============================================
 // AUTH ROUTES
@@ -45,5 +46,10 @@ router.get('/logout', (req, res) => {
     req.flash('success', "Goodbye!");
     res.redirect('/');
 })
+
+router.get('/home', async (req, res) => {
+    let professors = await ProfessorController.getAllProfessors();
+    res.render("users/home", {professorList: professors});
+});
 
 module.exports = router;

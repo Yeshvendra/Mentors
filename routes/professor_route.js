@@ -5,24 +5,20 @@ const Professor = require('../models/professors');
 const Project = require('../models/projects');
 const Institute = require('../models/institutes');
 
+const ProfessorController = require('../controller/professor_controller');
+
 // retrieve all professors
-router.get("/professors", (req, res) => {
-    Professor.find((err, professors) => {
-        if(err)
-        {
-            res.json({msg: 'Failed to retrieve all professors. Error: ' + err});
-        }
-        else
-        {
-            res.json(professors);
-        }
-    }).populate("projects").populate("institute");
+router.get("/professors", async (req, res) => {
+    let result = await ProfessorController.getAllProfessors();
+    res.json(result);
 });
 
 // add professor
 router.post("/professor", (req, res) => {
     let newProfessor = new Professor({
+        title: req.body.title,
         first_name: req.body.first_name,
+        middle_name: req.body.middle_name,
         last_name: req.body.last_name,
         phone: req.body.phone,
         email: req.body.email,

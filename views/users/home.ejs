@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate')%>
+<div class="container">
+    <div class="row">
+        <% for (var i = 0; i < professorList.length; i++) { %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="mt-4 mb-4 p-3 d-flex justify-content-center">
+                <div class="card p-4">
+                    <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button class="btn btn-secondary"><img src="images/avatar.png" height="150" width="150"/></button>
+                        <h2 class="name mt-3 text-center text-wrap">
+                            <span class=""><%= professorList[i].title %></span>
+                            <span class=""><%= professorList[i].first_name %></span>
+                            <% if(professorList[i].middle_name){ %>
+                            <span class=""><%= professorList[i].middle_name %></span>
+                            <% } %>
+                            <span class=""><%= professorList[i].last_name %></span>
+                        </h2>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-2 mt-1"> 
+                            <span>
+                                <i class="far fa-envelope"></i>
+                            </span>
+                            <a href="mailto:<%= professorList[i].email %>" target="_blank">
+                                <span class="idd1 pl-1"><%= professorList[i].email %></span> 
+                            </a>
+                        </div>
+                        <% if(professorList[i].phone){ %>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-2 mt-1"> 
+                            <span>
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            <span class="idd1 pl-1"><%= professorList[i].phone %></span>
+                        </div>
+                        <% } %>
+                        <div class="text mt-1 text-center"> 
+                            <h6><%= professorList[i].designation %></h6> 
+                        </div>
+                        <div class="text mt-1 text-center"> 
+                            <h4><%= professorList[i].institute.name %></h4> 
+                        </div>
+                        <!--<div class="pt-2 d-flex mt-2"> 
+                            <button class="btn1 btn-dark">Show Profile</button> 
+                        </div>-->
+                        <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+                            <% if(professorList[i].googleScholarUrl){ %>
+                            <span class="pr-2">
+                                <a href="<%= professorList[i].googleScholarUrl %>" target="_blank"><i class="fab fa-google"></i></a>
+                            </span>
+                            <% } %>
+                            <% if(professorList[i].linkedInUrl){ %>
+                            <span class="pr-2">
+                                <a href="<%= professorList[i].linkedInUrl %>" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            </span>
+                            <% } %>
+                            <% if(professorList[i].personalWebsite){ %>
+                            <span>
+                                <a href="<%= professorList[i].personalWebsite %>" target="_blank"><i class="fas fa-globe"></i></a>
+                            </span>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

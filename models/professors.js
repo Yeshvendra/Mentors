@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 
 const ProfessorSchema = mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
     first_name: {
         type: String,
         required: true
+    },
+    middle_name: {
+        type: String,
+        required: false
     },
     last_name: {
         type: String,
@@ -11,7 +19,7 @@ const ProfessorSchema = mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
