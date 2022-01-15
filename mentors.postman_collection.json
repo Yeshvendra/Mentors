@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -114,6 +114,105 @@
 								"api",
 								"professor",
 								"{{PROFESSOR_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add project to professor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ProjectId\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/project",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete project from professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/project/{{PROJECT_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"project",
+								"{{PROJECT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add institute to professor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"InstituteId\": \"CHANGE_ME\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/institute",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"institute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete institute from professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/institute",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"institute"
 							]
 						}
 					},
@@ -284,7 +383,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"keywords\": \"CHANGE_ME\",\r\n    \"start_date\": \"CHANGE_ME\",\r\n    \"end_date\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"keywords\": [\"CHANGE_ME\"],\r\n    \"start_date\": \"CHANGE_ME\",\r\n    \"end_date\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -376,22 +475,22 @@
 	],
 	"variable": [
 		{
-			"id": "ed8c28f8-2bc9-402a-b621-a045848386db",
+			"id": "a6150baa-d1a7-40e9-ac22-dae11bd0cd17",
 			"key": "ROOT_URL",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "ef96ba53-7097-48f2-bf18-7d066cfb6ab9",
+			"id": "6f792f32-ddaa-4482-9094-621ee9a2b023",
 			"key": "PROFESSOR_ID",
 			"value": ""
 		},
 		{
-			"id": "3e684102-3f40-4a30-b947-d10b9eb8766e",
+			"id": "2d0d366f-c3e7-4b15-a88a-7d40e87fa580",
 			"key": "PROJECT_ID",
 			"value": ""
 		},
 		{
-			"id": "87d9b631-8ab1-45d3-a68a-9005cf24ffdb",
+			"id": "678660c6-8115-4d53-a232-45cd08896003",
 			"key": "INSTITUTE_ID",
 			"value": ""
 		}
