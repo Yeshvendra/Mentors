@@ -18,16 +18,30 @@ const ProfessorSchema = mongoose.Schema({
         required: true
     },
     designation: {
-        type: String
+        type: String,
+        required: false
     },
     googleScholarUrl: {
-        type: String
+        type: String,
+        required: false
     },
     linkedInUrl: {
-        type: String
+        type: String,
+        required: false
     },
     personalWebsite: {
-        type: String
+        type: String,
+        required: false
+    },
+    projects:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project",
+        required: false
+    }],
+    institute: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Institute",
+        required: false
     }
 });
 
