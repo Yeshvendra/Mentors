@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -475,22 +475,22 @@
 	],
 	"variable": [
 		{
-			"id": "e3f9b491-02fe-484d-a829-7b13a0953a75",
+			"id": "9f7788b5-21fd-4b75-87b7-9c5d808ca71d",
 			"key": "ROOT_URL",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "6d1376d9-1c49-4773-bce5-544cd55fcb99",
+			"id": "30eb4665-0fc5-4fc8-a0c3-43bb63966a47",
 			"key": "PROFESSOR_ID",
 			"value": ""
 		},
 		{
-			"id": "131fee02-21dc-45ad-abaa-faa35c0fc50a",
+			"id": "8985f447-30ac-477b-b996-f0dc74e90b1f",
 			"key": "PROJECT_ID",
 			"value": ""
 		},
 		{
-			"id": "9abf6d29-eb6c-4e09-893d-3cfc11b47d87",
+			"id": "ea2a4e14-0baf-4112-a75d-8f6ab85e32b1",
 			"key": "INSTITUTE_ID",
 			"value": ""
 		}
