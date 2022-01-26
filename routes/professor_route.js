@@ -14,30 +14,9 @@ router.get("/professors", async (req, res) => {
 });
 
 // add professor
-router.post("/professor", (req, res) => {
-    let newProfessor = new Professor({
-        title: req.body.title,
-        first_name: req.body.first_name,
-        middle_name: req.body.middle_name,
-        last_name: req.body.last_name,
-        phone: req.body.phone,
-        email: req.body.email,
-        designation: req.body.designation,
-        googleScholarUrl: req.body.googleScholarUrl,
-        linkedInUrl: req.body.linkedInUrl,
-        personalWebsite: req.body.personalWebsite
-    });
-
-    newProfessor.save((err, result) => {
-        if(err)
-        {
-            res.json({msg: 'Failed to add Professor. Error: ' + err});
-        }
-        else
-        {
-            res.json({msg: 'Professor added successfully'});
-        }
-    });
+router.post("/professor", async (req, res) => {
+    let result = await ProfessorController.addProfessor(req.body);
+    res.json(result);
 });
 
 // delete professor
