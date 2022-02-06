@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Institute = require('../models/institutes');
 
+const InstituteController = require('../controller/institute_controller');
+
 // retrieve all institutes
 router.get("/institutes", (req, res) => {
     Institute.find((err, institutes) => {
@@ -18,25 +20,9 @@ router.get("/institutes", (req, res) => {
 });
 
 // add institute
-router.post("/institute", (req, res) => {
-    let newInstitute = new Institute({
-        name: req.body.name,
-        address: req.body.address,
-        phone: req.body.phone,
-        email: req.body.email,
-        website: req.body.website
-    });
-
-    newInstitute.save((err, result) => {
-        if(err)
-        {
-            res.json({msg: 'Failed to add Institute. Error: ' + err});
-        }
-        else
-        {
-            res.json({msg: 'Institute added successfully'});
-        }
-    });
+router.post("/institute", async (req, res) => {
+    let result = await InstituteController.addInstitute(req.body);
+    res.json(result);
 });
 
 // delete institute
