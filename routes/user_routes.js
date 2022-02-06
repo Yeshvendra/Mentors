@@ -4,8 +4,8 @@ const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
 const User = require("../models/user");
 const ProfessorController = require("../controller/professor_controller");
-const users = require("../controller/users_controller")
-const middleware = require("../middleware/auth_middleware")
+const users = require("../controller/users_controller");
+const middleware = require("../middleware/auth_middleware");
 // ============================================
 // AUTH ROUTES
 //=============================================
@@ -21,11 +21,6 @@ router.get('/logout', users.logout)
 
 router.get("/secret", middleware.isLoggedIn, async (req, res) => {
     res.send("hello secret user!!")
-});
-
-router.get('/home', async (req, res) => {
-    let professors = await ProfessorController.getAllProfessors();
-    res.render("users/home", {professorList: professors});
 });
 
 module.exports = router;
