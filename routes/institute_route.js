@@ -21,8 +21,14 @@ router.get("/institutes", (req, res) => {
 
 // add institute
 router.post("/institute", async (req, res) => {
-    let result = await InstituteController.addInstitute(req.body);
-    res.json(result);
+    try{
+        let result = await InstituteController.addInstitute(req.body);
+        res.json(result);
+    }
+    catch(err)
+    {
+        return {msg: 'Failed to add Institute. Error: ' + err};
+    }
 });
 
 // delete institute

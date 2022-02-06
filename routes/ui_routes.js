@@ -3,18 +3,42 @@ const router = express.Router();
 const authMiddleware = require("../middleware/auth_middleware");
 
 const ProfessorController = require('../controller/professor_controller');
+const InstituteController = require('../controller/institute_controller');
 
 router.get('/home', async (req, res) => {
     let professors = await ProfessorController.getAllProfessors();
-    res.render("users/home", {professorList: professors});
+    res.render("home", {professorList: professors});
 });
 
-router.get('/addMentor', authMiddleware.isLoggedIn, async(req, res) => {
-    res.render("mentors/addMentor");
+router.get('/addMentor', authMiddleware.isLoggedIn, authMiddleware.isAdmin, async(req, res) => {
+    let institutes = await InstituteController.getAllInstitutes();
+    res.render("addMentor", {instituteList: institutes});
 });
 
-router.get('/addInstitute', authMiddleware.isLoggedIn, async(req, res) => {
+router.post('/addMentor',async (req, res, next) => {
+    try {
+        ProfessorController.addProfessor(req.body);
+        req.flash('success', req.body.first_name + ' ' + req.body.last_name + ' added successfully!');
+        res.redirect('addMentor');
+    } catch (e) {
+        req.flash('error', e.message);
+        res.redirect('addMentor');
+    }
+});
+
+router.get('/addInstitute', authMiddleware.isLoggedIn, authMiddleware.isAdmin, async(req, res) => {
     res.render("addInstitute");
+});
+
+router.post('/addInstitute', authMiddleware.isLoggedIn, authMiddleware.isAdmin, async (req, res, next) => {
+    try {
+        InstituteController.addInstitute(req.body);
+        req.flash('success', req.body.name + ' added successfully!');
+        res.redirect('addInstitute');
+    } catch (e) {
+        req.flash('error', e.message);
+        res.redirect('addInstitute');
+    }
 });
 
 module.exports = router;

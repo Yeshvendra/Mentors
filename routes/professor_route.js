@@ -15,8 +15,13 @@ router.get("/professors", async (req, res) => {
 
 // add professor
 router.post("/professor", async (req, res) => {
-    let result = await ProfessorController.addProfessor(req.body);
-    res.json(result);
+    try{
+        let result = await ProfessorController.addProfessor(req.body);
+        res.json(result);
+    }
+    catch(err){
+        return {msg: 'Failed to add Professor. Error: ' + err};
+    }
 });
 
 // delete professor
