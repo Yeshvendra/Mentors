@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate')%>
+<div class="container mt-5 mb-5">
+    <div class="container">
+        <div class="card text-center border-success shadow">
+            <div class="card-header">
+                Add the details
+            </div>
+        </div>
+        <div class="card p-4 shadow p-3 mb-5 bg-white rounded">
+            <div class="form-group row">
+                <form action="/addMentor" method="POST" class="validated-form">
+                    <div class="image d-flex flex-column justify-content-center align-items-center">
+                        <button class="btn btn-primary"><img src="./images/avatar.png" height="200"
+                                width="200" /></button>
+                    </div>
+					<div class="mb-3">
+                        <label class="form-label" for="title">Title</label>
+						<select class="form-control" id="title" name="title" required>
+                            <option value="" selected disabled hidden>Select a Title</option>
+							<Option value="Mr.">Mr.</Option>
+							<Option value="Dr.">Dr.</Option>
+							<Option value="Ms.">Ms.</Option>
+							<Option value="Mrs.">Mrs.</Option>
+							<Option value="Prof.">Prof.</Option>
+						</select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="first_name">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
+                    </div>
+					<div class="mb-3">
+                        <label class="form-label" for="middle_name">Middle Name</label>
+                        <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Enter Middle Name">
+                    </div>
+					<div class="mb-3">
+                        <label class="form-label" for="last_name">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="phone">Contact No.</label><br>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91-9876543210" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="designation">Designation</label>
+                        <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation (Example: Professor)" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="department">Department</label>
+                        <input type="text" class="form-control" id="department" name="department" placeholder="Example: Computer Science & Engineering" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="institute">Institute \ University</label>
+						<select class="form-control" id="institute" name="institute" required>
+                            <option value="" selected disabled hidden>Select an Institute \ University</option>
+							<% for (var i = 0; i < instituteList.length; i++) { %>
+								<option value="<%= instituteList[i]._id %>">
+									<%= instituteList[i].name %>
+								</option>
+							<% } %>
+						</select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="googleScholarUrl">Google Scholar URL -</label>
+                        <input type="url" class="form-control" id="googleScholarUrl" name="googleScholarUrl" placeholder="Example: https://scholar.google.co.in/citations?user=XYZ">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="linkedInUrl">LinkedIn URL -</label>
+                        <input type="url" class="form-control" id="linkedInUrl" name="linkedInUrl" placeholder="Example: https://www.linkedin.com/in/XYZ">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="personalWebsite">Faculty Website URL -</label>
+                        <input type="url" class="form-control" id="personalWebsite" name="personalWebsite" placeholder="Example: https://www.xyz.com/zyx">
+                    </div>
+                    <!--<div class="mb-3">
+                        <label class="form-label" for="Other">Other URL (If Any)</label>
+                        <input type="url" class="form-control" id="Other" placeholder="Enter URL">
+                    </div>-->
+                    <!--<div class="mb-3">
+                        <label class="form-label" for="Profile">Upload Profile Picture</label>
+                        <input type="file" class="form-control" id="Profile" accept="image/*">
+                        <div class="input-group">
+                                <input type="file" class="form-control">
+                                <button type="button" class="btn btn-secondary">Upload</button>
+                            </div>
+                    </div>-->
+                    <div class="image d-flex flex-column justify-content-center align-items-center">
+                        <button type="submit" class="btn btn-success">Submit
+                            &nbsp; <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

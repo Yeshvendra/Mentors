@@ -29,6 +29,10 @@ const ProfessorSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    department: {
+        type: String,
+        required: false
+    },
     googleScholarUrl: {
         type: String,
         required: false

@@ -21,28 +21,24 @@ class ProfessorController
     // add a professor
     async addProfessor(prof)
     {
-        try{
-            let newProfessor = new Professor({
-                title: prof.title,
-                first_name: prof.first_name,
-                middle_name: prof.middle_name,
-                last_name: prof.last_name,
-                phone: prof.phone,
-                email: prof.email,
-                designation: prof.designation,
-                googleScholarUrl: prof.googleScholarUrl,
-                linkedInUrl: prof.linkedInUrl,
-                personalWebsite: prof.personalWebsite,
-                projects: prof.projects,
-                institute: prof.institute
-            });
-        
-            let result = await newProfessor.save();
-            return {msg: 'Professor added successfully'};
-        }
-        catch(err){
-            return {msg: 'Failed to add Professor. Error: ' + err};
-        }
+        let newProfessor = new Professor({
+            title: prof.title,
+            first_name: prof.first_name,
+            middle_name: prof.middle_name,
+            last_name: prof.last_name,
+            phone: prof.phone,
+            email: prof.email,
+            designation: prof.designation,
+            department: prof.department,
+            googleScholarUrl: prof.googleScholarUrl,
+            linkedInUrl: prof.linkedInUrl,
+            personalWebsite: prof.personalWebsite,
+            projects: prof.projects,
+            institute: prof.institute
+        });
+    
+        await newProfessor.save();
+        return {msg: 'Professor added successfully'};
     }
 }
 
