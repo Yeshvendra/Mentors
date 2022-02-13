@@ -68,7 +68,6 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')))
 
 const sessionConfig = {
     secret: 'thisshouldbeabettersecret!',
@@ -106,6 +105,9 @@ app.use('/api', instituteRoute);
 app.use('/api', projectRoute);
 app.use(uiRoute);
 app.use(userRoutes);
+
+//Static content hosting
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Health Check end-point
 app.get('/healthCheck', (req, res) => {

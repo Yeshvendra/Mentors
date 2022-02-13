@@ -20,6 +20,10 @@ const InstituteSchema = mongoose.Schema({
     website: {
         type: String,
         required: true
+    },
+    profilePictureURL: {
+        type: String,
+        required: false
     }
 });
 

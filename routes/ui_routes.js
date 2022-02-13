@@ -10,6 +10,10 @@ router.get('/home', async (req, res) => {
     res.render("home", {professorList: professors});
 });
 
+router.get('/', async (req, res) => {
+    res.redirect('/home');
+});
+
 router.get('/addMentor', authMiddleware.isLoggedIn, authMiddleware.isAdmin, async(req, res) => {
     let institutes = await InstituteController.getAllInstitutes();
     res.render("addMentor", {instituteList: institutes});
@@ -39,6 +43,12 @@ router.post('/addInstitute', authMiddleware.isLoggedIn, authMiddleware.isAdmin, 
         req.flash('error', e.message);
         res.redirect('addInstitute');
     }
+});
+
+router.get('/mentorInfo', authMiddleware.isLoggedIn, async (req, res, next) => {
+    let prof = await ProfessorController.getProfessor(req.query.id);
+    res.render("mentorInfo", {professor: prof});
+    //res.render("home", {professorList: professors});
 });
 
 module.exports = router;

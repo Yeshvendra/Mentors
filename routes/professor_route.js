@@ -53,17 +53,9 @@ router.put("/professor/:id", (req, res) => {
 });
 
 // find professor
-router.get("/professor/:id", (req, res) => {
-    Professor.findOne({_id: req.params.id}, (err, professor) => {
-        if(err)
-        {
-            res.json({msg: 'Failed to get professor with id: ' + req.params.id + '. Error: ' + err});
-        }
-        else
-        {
-            res.json(professor);
-        }
-    }).populate("projects").populate("institute");
+router.get("/professor/:id", async (req, res) => {
+    let result = await ProfessorController.getProfessor(req.params.id);
+    res.json(result);
 });
 
 // add project to professor

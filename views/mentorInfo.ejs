@@ -1,0 +1,175 @@
+<% layout('layouts/boilerplate')%>
+<section style="background-color: #fff;">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <% if(!professor.profilePictureURL){ %>
+                        <img class="border rounded-circle bg-dark" src="images/avatar.png" height="150" width="150" />
+                    <% } else { %>
+                        <img class="rounded-circle img-fluid" src="<%= professor.profilePictureURL %>" height="150" width="150" />
+                    <% } %>
+                    <h5 class="my-3"><%= professor.title %> <%= professor.first_name %> <%= professor.last_name %></h5>
+                    <p class="text-muted mb-1"><%= professor.designation %></p>
+                    <% if(professor.department){ %>
+                    <p class="text-muted mb-1"><%= professor.department %></p>
+                    <% } %>
+                    <p class="text-muted mb-4"><%= professor.institute.name %></p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <% if(professor.personalWebsite){ %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                              <i class="fas fa-globe fa-lg"></i>
+                              <p class="mb-0 text-right"><%= professor.personalWebsite %></p>
+                            </li>
+                            <% } %>
+                            <% if(professor.linkedInUrl){ %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                              <i class="fab fa-linkedin fa-lg"></i>
+                              <p class="mb-0 text-right"><%= professor.linkedInUrl %></p>
+                            </li>
+                            <% } %>
+                            <% if(professor.googleScholarUrl){ %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                              <i class="fab fa-google fa-lg"></i>
+                              <p class="mb-0 text-right"><%= professor.googleScholarUrl %></p>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Full Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0 text-wrap">
+                                <span class=""><%= professor.title %></span>
+                                <span class=""><%= professor.first_name %></span>
+                                <% if(professor.middle_name){ %>
+                                <span class=""><%= professor.middle_name %></span>
+                                <% } %>
+                                <span class=""><%= professor.last_name %></span>
+                            </p>
+                        </div>
+                    </div>
+                    <% if(professor.phone){ %>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Phone</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0"><%= professor.phone %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if(professor.email){ %>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0"><%= professor.email %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if(professor.designation){ %>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Designation</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0"><%= professor.designation %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if(professor.department){ %>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Department</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0"><%= professor.department %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if(professor.institute.name){ %>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Institute Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0"><%= professor.institute.name %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if(professor.institute.address){ %>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Institute Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><%= professor.institute.address %></p>
+                            </div>
+                        </div>
+                    <% } %>
+                    <% if(professor.institute.website){ %>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Institute Website</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><%= professor.institute.website %></p>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status</p>
+                            <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                            <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                            <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                            <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                            <div class="progress rounded" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                            <div class="progress rounded mb-2" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</section>
