@@ -18,6 +18,18 @@ class ProfessorController
         }
     }
 
+    // retrieve professor information
+    async getProfessor(profId)
+    {
+        try{
+            let professor = await Professor.findOne({_id: profId}).populate("projects").populate("institute");
+            return professor
+        }
+        catch(err){
+            return {msg: 'Failed to retrieve all professors. Error: ' + err};
+        }
+    }
+
     // add a professor
     async addProfessor(prof)
     {
@@ -34,7 +46,8 @@ class ProfessorController
             linkedInUrl: prof.linkedInUrl,
             personalWebsite: prof.personalWebsite,
             projects: prof.projects,
-            institute: prof.institute
+            institute: prof.institute,
+            profilePictureURL: prof.profilePictureURL
         });
     
         await newProfessor.save();

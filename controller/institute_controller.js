@@ -24,7 +24,8 @@ class InstituteController
             address: inst.address,
             phone: inst.phone,
             email: inst.email,
-            website: inst.website
+            website: inst.website,
+            profilePictureURL: inst.profilePictureURL
         });
     
         await newInstitute.save();

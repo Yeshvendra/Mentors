@@ -54,6 +54,10 @@ const ProfessorSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Institute",
         required: false
+    },
+    profilePictureURL: {
+        type: String,
+        required: false
     }
 });
 
