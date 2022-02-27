@@ -58,7 +58,11 @@ const ProfessorSchema = mongoose.Schema({
     profilePictureURL: {
         type: String,
         required: false
-    }
+    },
+    areaOfInterest: [{
+        type: String,
+        required: false  
+    }]
 });
 
 const Professor = module.exports = mongoose.model('Professor', ProfessorSchema);
