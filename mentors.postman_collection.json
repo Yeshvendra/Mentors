@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"areaOfInterest\": [\"CHANGE_ME\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"areaOfInterest\": [\"CHANGE_ME\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -475,22 +475,22 @@
 	],
 	"variable": [
 		{
-			"id": "2e1640eb-6ef5-4bf6-8e55-05df139b12fc",
+			"id": "95bfa656-4d55-457d-b5f8-02f8ea1cffb5",
 			"key": "ROOT_URL",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "00ec201a-3c53-40fc-a04e-9961fe4713a3",
+			"id": "2d5171dd-8468-4846-847e-8a222ce351cf",
 			"key": "PROFESSOR_ID",
 			"value": ""
 		},
 		{
-			"id": "fc527c5f-da5e-49b9-9b05-7aa68f59d5ad",
+			"id": "bc936789-20df-4477-9f12-b15dc5ccce2a",
 			"key": "PROJECT_ID",
 			"value": ""
 		},
 		{
-			"id": "10dd1137-faad-4827-8198-1066144ea988",
+			"id": "732fd553-ae73-43a0-a0cc-1da46caee8ad",
 			"key": "INSTITUTE_ID",
 			"value": ""
 		}

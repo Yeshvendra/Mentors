@@ -5,9 +5,28 @@ const authMiddleware = require("../middleware/auth_middleware");
 const ProfessorController = require('../controller/professor_controller');
 const InstituteController = require('../controller/institute_controller');
 
+// Number of professors to be shown on a single page
+const resultsPerPage = 6;
+
 router.get('/home', async (req, res) => {
-    let professors = await ProfessorController.getAllProfessors();
-    res.render("home", {professorList: professors});
+    let numberOfResults = await ProfessorController.countProfessors();
+    let numberOfPages = Math.ceil(numberOfResults / resultsPerPage);
+    let page = req.query.page ? Number(req.query.page) : 1;
+    if(page > numberOfPages)
+    {
+        res.redirect('/?page=' + encodeURIComponent(numberOfPages));
+    }
+    else if(page < 1)
+    {
+        res.redirect('/?page=1');
+    }
+
+    // Determine the result starting number
+    const startingLimit = (page - 1) * resultsPerPage;
+
+    let professors = await ProfessorController.getAllProfessors(startingLimit, resultsPerPage);
+
+    res.render("home", {professorList: professors, current: page, pages: numberOfPages});
 });
 
 router.get('/', async (req, res) => {
@@ -48,7 +67,6 @@ router.post('/addInstitute', authMiddleware.isLoggedIn, authMiddleware.isAdmin, 
 router.get('/mentorInfo', authMiddleware.isLoggedIn, async (req, res, next) => {
     let prof = await ProfessorController.getProfessor(req.query.id);
     res.render("mentorInfo", {professor: prof});
-    //res.render("home", {professorList: professors});
 });
 
 module.exports = router;

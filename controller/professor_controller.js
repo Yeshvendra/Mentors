@@ -18,6 +18,18 @@ class ProfessorController
         }
     }
 
+    // retrieve l number of  professors from s location
+    async getAllProfessors(s, l)
+    {
+        try{
+            let professors = await Professor.find().skip(s).limit(l).populate("projects").populate("institute");
+            return professors;
+        }
+        catch(err){
+            return {msg: 'Failed to retrieve all professors. Error: ' + err};
+        }
+    }
+
     // retrieve professor information
     async getProfessor(profId)
     {
@@ -28,6 +40,13 @@ class ProfessorController
         catch(err){
             return {msg: 'Failed to retrieve all professors. Error: ' + err};
         }
+    }
+
+    // count number of professors
+    async countProfessors()
+    {
+        let numberOfProf = await Professor.estimatedDocumentCount();
+        return numberOfProf;
     }
 
     // add a professor
@@ -47,7 +66,8 @@ class ProfessorController
             personalWebsite: prof.personalWebsite,
             projects: prof.projects,
             institute: prof.institute,
-            profilePictureURL: prof.profilePictureURL
+            profilePictureURL: prof.profilePictureURL,
+            areaOfInterest: prof.areaOfInterest
         });
     
         await newProfessor.save();
