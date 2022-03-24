@@ -50,6 +50,11 @@ const ProfessorSchema = mongoose.Schema({
         ref: "Project",
         required: false
     }],
+    publications:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Publication",
+        required: false
+    }],
     institute: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Institute",

@@ -9,11 +9,11 @@ const InstituteController = require('../controller/institute_controller');
 const resultsPerPage = 6;
 
 router.get('/home', async (req, res) => {
-    let searchByName = req.query.searchByName ? req.query.searchByName : "";
-    let numberOfResults = await ProfessorController.countProfessors(searchByName);
+    let searchByKey = req.query.searchByKey ? req.query.searchByKey : "";
+    let numberOfResults = await ProfessorController.countProfessors(searchByKey);
     if(numberOfResults < 1)
     {
-        res.render("home", {professorList: [], current: 1, pages: 1, searchByName: searchByName});
+        res.render("home", {professorList: [], current: 1, pages: 1, searchByKey: searchByKey});
         return;
     }
     let numberOfPages = Math.ceil(numberOfResults / resultsPerPage);
@@ -30,9 +30,9 @@ router.get('/home', async (req, res) => {
     // Determine the result starting number
     const startingLimit = (page - 1) * resultsPerPage;
 
-    let professors = await ProfessorController.getAllProfessors(searchByName, startingLimit, resultsPerPage);
+    let professors = await ProfessorController.getAllProfessorsByKey(searchByKey, startingLimit, resultsPerPage);
 
-    res.render("home", {professorList: professors, current: page, pages: numberOfPages, searchByName: searchByName});
+    res.render("home", {professorList: professors, current: page, pages: numberOfPages, searchByKey: searchByKey});
 });
 
 router.get('/', async (req, res) => {

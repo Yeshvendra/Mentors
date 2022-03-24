@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Professor = require('../models/professors');
 const Project = require('../models/projects');
+const Publication = require('../models/publications');
 const Institute = require('../models/institutes');
 
 const ProfessorController = require('../controller/professor_controller');
@@ -140,6 +141,94 @@ router.delete("/professor/:id/project/:projectId", (req, res) => {
                 else
                 {
                     res.json({msg: 'Project deleted from professor successfully'});
+                }
+            });
+        }
+    });
+});
+
+// add publication to professor
+router.post("/professor/:id/publication", (req, res) => {
+    Publication.findOne({_id: req.body.PublicationId}, (err, publication) => {
+        if(err)
+        {
+            res.json({msg: 'Failed to add publication to professor with id: ' + 
+                      req.params.id + '. PublicationId was not found. Error: ' + err + '.'});
+        }
+        else
+        {
+            Professor.findOne({_id: req.params.id}, (err, professor) => {
+                if(err)
+                {
+                    res.json({msg: 'Failed to add publication to professor with id: ' + 
+                              req.params.id + '.ProfessorId was not found. Error: ' + err});
+                }
+                else
+                {
+                    let professorPublications = {
+                        publications: professor.publications
+                    };
+
+                    const index = professorPublications.publications.indexOf(publication._id);
+                    if(index > -1)
+                    {
+                        res.json({msg: 'Publication already exist with id: ' + publication._id});
+                        return;
+                    }
+
+                    professorPublications.publications.push(publication._id);
+
+                    Professor.findOneAndUpdate({_id: req.params.id}, {$set: professorPublications}, (err, result) => {
+                        if(err)
+                        {
+                            res.json({msg: 'Failed to add publication to professor with id: ' + 
+                                      req.params.id + '. Error: ' + err});
+                        }
+                        else
+                        {
+                            res.json({msg: 'Publication added to professor successfully'});
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+// delete publication from professor
+router.delete("/professor/:id/publication/:publicationId", (req, res) => {
+    Professor.findOne({_id: req.params.id}, (err, professor) => {
+        if(err)
+        {
+            res.json({msg: 'Failed to delete publication from professor with id: ' + 
+                      req.params.id + '. ProfessorId was not found. Error: ' + err + '.'});
+        }
+        else
+        {
+            let professorPublications = {
+                publications: professor.publications
+            }
+            
+            let index = professorPublications.publications.indexOf(req.params.publicationId);
+
+            if(index > -1)
+            {
+                professorPublications.publications.splice(index, 1);
+            }
+            else
+            {
+                res.json({msg: 'Publication with id: "' + req.params.publicationId + '" does not exists for professor with id: "' + req.params.id + '".'});
+            }
+
+            Professor.findOneAndUpdate({_id: req.params.id}, {$set: professorPublications}, (err, result) => {
+                if(err)
+                {
+                    res.json({msg: 'Failed to delete publication from professor with id: ' + 
+                              req.params.id + '. Error: ' + err});
+                }
+                else
+                {
+                    res.json({msg: 'Publication deleted from professor successfully'});
                 }
             });
         }
