@@ -10,7 +10,7 @@ class ProfessorController
     async getAllProfessors()
     {
         try{
-            let professors = await Professor.find().populate("projects").populate("institute");
+            let professors = await Professor.find().populate("projects").populate("institute").populate("publications");
             return professors;
         }
         catch(err){
@@ -18,21 +18,21 @@ class ProfessorController
         }
     }    
 
-    // retrieve l number of  professors using searchByName text from s location
-    async getAllProfessors(searchByName, s, l)
+    // retrieve l number of  professors using searchByKey text from s location
+    async getAllProfessorsByKey(searchByKey, s, l)
     {
         try{
-            searchByName.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-            const regex = new RegExp(searchByName, 'gi');
+            searchByKey.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+            const regex = new RegExp(searchByKey, 'gi');
             const expression = {
                 "$expr": {
                     "$regexMatch": {
-                        "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name"] },
+                        "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name", " ", "$areaOfInterest"] },
                         "regex": regex
                     }
                 }
             };
-            let professors = await Professor.find(expression).skip(s).limit(l).populate("projects").populate("institute");
+            let professors = await Professor.find(expression).skip(s).limit(l).populate("projects").populate("institute").populate("publications");
             return professors;
         }
         catch(err){
@@ -44,7 +44,7 @@ class ProfessorController
     async getProfessor(profId)
     {
         try{
-            let professor = await Professor.findOne({_id: profId}).populate("projects").populate("institute");
+            let professor = await Professor.findOne({_id: profId}).populate("projects").populate("institute").populate("publications");
             return professor
         }
         catch(err){
@@ -52,15 +52,15 @@ class ProfessorController
         }
     }
 
-    // count number of professors using searchByName 
-    async countProfessors(searchByName)
+    // count number of professors using searchByKey 
+    async countProfessors(searchByKey)
     {
-        searchByName.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-        const regex = new RegExp(searchByName, 'gi');
+        searchByKey.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+        const regex = new RegExp(searchByKey, 'gi');
         const expression = {
             "$expr": {
                 "$regexMatch": {
-                    "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name"] },
+                    "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name", " ", "$areaOfInterest"] },
                     "regex": regex
                 }
             }
@@ -85,6 +85,7 @@ class ProfessorController
             linkedInUrl: prof.linkedInUrl,
             personalWebsite: prof.personalWebsite,
             projects: prof.projects,
+            publications: prof.publications,
             institute: prof.institute,
             profilePictureURL: prof.profilePictureURL,
             areaOfInterest: prof.areaOfInterest
