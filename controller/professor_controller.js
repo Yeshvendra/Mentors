@@ -18,16 +18,38 @@ class ProfessorController
         }
     }    
 
-    // retrieve l number of  professors using searchByKey text from s location
-    async getAllProfessorsByKey(searchByKey, s, l)
+    // retrieve l number of  professors using searchByName text from s location
+    async getAllProfessorsByName(searchByName, s, l)
     {
         try{
-            searchByKey.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-            const regex = new RegExp(searchByKey, 'gi');
+            searchByName.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+            const regex = new RegExp(searchByName, 'gi');
             const expression = {
                 "$expr": {
                     "$regexMatch": {
-                        "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name", " ", "$areaOfInterest"] },
+                        "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name"] },
+                        "regex": regex
+                    }
+                }
+            };
+            let professors = await Professor.find(expression).skip(s).limit(l).populate("projects").populate("institute").populate("publications");
+            return professors;
+        }
+        catch(err){
+            return {msg: 'Failed to retrieve all professors. Error: ' + err};
+        }
+    }
+
+    // retrieve l number of  professors using searchByArea text from s location
+    async getAllProfessorsByArea(searchByArea, s, l)
+    {
+        try{
+            searchByArea.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+            const regex = new RegExp(searchByArea, 'gi');
+            const expression = {
+                "$expr": {
+                    "$regexMatch": {
+                        "input": "$interestArea",
                         "regex": regex
                     }
                 }
@@ -52,15 +74,32 @@ class ProfessorController
         }
     }
 
-    // count number of professors using searchByKey 
-    async countProfessors(searchByKey)
+    // count number of professors using searchByName 
+    async countProfessorsByName(searchByName)
     {
-        searchByKey.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-        const regex = new RegExp(searchByKey, 'gi');
+        searchByName.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+        const regex = new RegExp(searchByName, 'gi');
         const expression = {
             "$expr": {
                 "$regexMatch": {
-                    "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name", " ", "$areaOfInterest"] },
+                    "input": { "$concat": ["$first_name", " ", "$middle_name", " ", "$last_name"] },
+                    "regex": regex
+                }
+            }
+        };
+        let numberOfProf = await Professor.countDocuments(expression);
+        return numberOfProf;
+    }
+
+    // count number of professors using searchByArea 
+    async countProfessorsByArea(searchByArea)
+    {
+        searchByArea.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+        const regex = new RegExp(searchByArea, 'gi');
+        const expression = {
+            "$expr": {
+                "$regexMatch": {
+                    "input": "$interestArea",
                     "regex": regex
                 }
             }
@@ -88,7 +127,7 @@ class ProfessorController
             publications: prof.publications,
             institute: prof.institute,
             profilePictureURL: prof.profilePictureURL,
-            areaOfInterest: prof.areaOfInterest
+            interestArea: prof.interestArea
         });
     
         await newProfessor.save();
