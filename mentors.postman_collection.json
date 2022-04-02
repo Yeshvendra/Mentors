@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"areaOfInterest\": [\"CHANGE_ME\"]\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"publications\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"interestArea\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"areaOfInterest\": [\"CHANGE_ME\"]\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"first_name\": \"CHANGE_ME\",\r\n    \"middle_name\": \"CHANGE_ME\",\r\n    \"last_name\": \"CHANGE_ME\",\r\n    \"phone\": \"CHANGE_ME\",\r\n    \"email\": \"CHANGE_ME\",\r\n    \"designation\": \"CHANGE_ME\",\r\n    \"department\": \"CHANGE_ME\",\r\n    \"googleScholarUrl\": \"CHANGE_ME\",\r\n    \"personalWebsite\": \"CHANGE_ME\",\r\n    \"linkedInUrl\": \"CHANGE_ME\",\r\n    \"projects\": [\"CHANGE_ME\"],\r\n    \"publications\": [\"CHANGE_ME\"],\r\n    \"institute\": \"CHANGE_ME\",\r\n    \"profilePictureURL\": \"CHANGE_ME\",\r\n    \"interestArea\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,6 +164,56 @@
 								"{{PROFESSOR_ID}}",
 								"project",
 								"{{PROJECT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add publication to professor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PublicationId\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/publication",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete publication from professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/professor/{{PROFESSOR_ID}}/publication/{{PUBLICATION_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"professor",
+								"{{PROFESSOR_ID}}",
+								"publication",
+								"{{PUBLICATION_ID}}"
 							]
 						}
 					},
@@ -451,6 +501,122 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Get all publication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/publications",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"publications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get publication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/publication/{{PUBLICATION_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"publication",
+								"{{PUBLICATION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add publication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/publication",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete publication",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}/api/publication/{{PUBLICATION_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"publication",
+								"{{PUBLICATION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update publication",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/api/publication/{{PUBLICATION_ID}}",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"api",
+								"publication",
+								"{{PUBLICATION_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -475,23 +641,28 @@
 	],
 	"variable": [
 		{
-			"id": "95bfa656-4d55-457d-b5f8-02f8ea1cffb5",
+			"id": "2065b150-15d5-4fde-8f7f-3a857f5955a9",
 			"key": "ROOT_URL",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "2d5171dd-8468-4846-847e-8a222ce351cf",
+			"id": "a4cd57b0-3ecc-47b6-a4aa-e929103f9a5d",
 			"key": "PROFESSOR_ID",
 			"value": ""
 		},
 		{
-			"id": "bc936789-20df-4477-9f12-b15dc5ccce2a",
+			"id": "56a1bc60-518f-4aef-8e8d-bb444e74042a",
 			"key": "PROJECT_ID",
 			"value": ""
 		},
 		{
-			"id": "732fd553-ae73-43a0-a0cc-1da46caee8ad",
+			"id": "fac5dac7-bc69-4692-aa6f-e30642ea5004",
 			"key": "INSTITUTE_ID",
+			"value": ""
+		},
+		{
+			"id": "78b23ff5-d48b-41c6-b33e-13e5d843242a",
+			"key": "PUBLICATION_ID",
 			"value": ""
 		}
 	]
