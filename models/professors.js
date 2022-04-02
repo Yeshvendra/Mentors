@@ -64,10 +64,11 @@ const ProfessorSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    areaOfInterest: [{
+    interestArea: {
         type: String,
-        required: false  
-    }]
+        required: false,
+        default: '' 
+    }
 });
 
 const Professor = module.exports = mongoose.model('Professor', ProfessorSchema);
