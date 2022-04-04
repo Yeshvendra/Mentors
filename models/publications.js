@@ -24,6 +24,10 @@ const PublicationSchema = mongoose.Schema({
     citationString: {
         type: String,
         required: false
+    },
+    type: {
+        type: String, //Can be National Conference, International Conference, Book Chapter, International Journal, National Journal or Book
+        required: true
     }
 });
 

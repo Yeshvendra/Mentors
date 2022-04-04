@@ -25,7 +25,8 @@ router.post("/publication", (req, res) => {
         publisherDetail: req.body.publisherDetail,
         yearOfPublication: req.body.yearOfPublication,
         contributors: req.body.contributors,
-        citationString: req.body.citationString
+        citationString: req.body.citationString,
+        type: req.body.type
     });
 
     newPublication.save((err, result) => {
