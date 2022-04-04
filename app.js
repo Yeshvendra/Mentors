@@ -21,6 +21,7 @@ if(!process.env.NODE_ENV)
 const professorRoute = require('./routes/professor_route');
 const instituteRoute = require('./routes/institute_route');
 const projectRoute = require('./routes/project_route');
+const publicationRoute = require('./routes/publication_route');
 const uiRoute = require('./routes/ui_routes');
 var userRoutes = require("./routes/user_routes");
 
@@ -103,6 +104,7 @@ app.use((req, res, next) => {
 app.use('/api', professorRoute);
 app.use('/api', instituteRoute);
 app.use('/api', projectRoute);
+app.use('/api', publicationRoute);
 app.use(uiRoute);
 app.use(userRoutes);
 

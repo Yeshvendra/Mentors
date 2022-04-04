@@ -549,7 +549,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\",\r\n    \"type\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -595,7 +595,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\"\r\n}",
+							"raw": "{\r\n    \"title\": \"CHANGE_ME\",\r\n    \"description\": \"CHANGE_ME\",\r\n    \"publisherDetail\": \"CHANGE_ME\",\r\n    \"yearOfPublication\": \"CHANGE_ME\",\r\n    \"contributors\": \"CHANGE_ME\",\r\n    \"citationString\": \"CHANGE_ME\",\r\n    \"type\": \"CHANGE_ME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -641,27 +641,27 @@
 	],
 	"variable": [
 		{
-			"id": "2065b150-15d5-4fde-8f7f-3a857f5955a9",
+			"id": "c6e64247-0d45-4e61-90c5-52ff3a076f93",
 			"key": "ROOT_URL",
 			"value": "http://localhost:3000"
 		},
 		{
-			"id": "a4cd57b0-3ecc-47b6-a4aa-e929103f9a5d",
+			"id": "0bc20eaf-408b-43f7-83e0-be65d5d4d336",
 			"key": "PROFESSOR_ID",
 			"value": ""
 		},
 		{
-			"id": "56a1bc60-518f-4aef-8e8d-bb444e74042a",
+			"id": "21f51261-a8b0-4813-9f85-f047eb65d287",
 			"key": "PROJECT_ID",
 			"value": ""
 		},
 		{
-			"id": "fac5dac7-bc69-4692-aa6f-e30642ea5004",
+			"id": "d88df3de-fbc0-4525-9c6a-2f03bb5c0a7b",
 			"key": "INSTITUTE_ID",
 			"value": ""
 		},
 		{
-			"id": "78b23ff5-d48b-41c6-b33e-13e5d843242a",
+			"id": "9df79c2e-3f24-4f87-a50d-fbcf6f239a26",
 			"key": "PUBLICATION_ID",
 			"value": ""
 		}
